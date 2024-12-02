@@ -26,15 +26,147 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  background-color: #f3f3f9;
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 3em;
   line-height: 1.1;
+  font-weight: 800;
+}
+
+/*========= Nav Bar =========*/
+.nav-container {
+  display: flex;
+}
+
+h3 {
+  font-size: 1em;
+  margin-right: 10px;
+  margin-left: 30px;
+}
+
+.nav-item {
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  color: rgb(29, 29, 29);
+  font-weight: 400;
+}
+.nav-item:hover {
+  color: rgb(29, 29, 29);
+}
+.nav-item:active {
+  color: rgb(29, 29, 29);
+  font-weight: 500;
+}
+
+/*========= Books Page  =========*/
+
+.main-title {
+  font-size: 2.5em;
+  font-weight: 700;
+}
+
+.sub-title {
+  margin-bottom: 70px;
+  font-style: italic;
+}
+
+.books-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.book {
+  max-width: 200px;
+  max-height: 30px;
+  margin-bottom: 300px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.book-img {
+  width: 100%;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.27);
+}
+
+.book-img:hover {
+  transform: scale(1.02);
+}
+
+/*========= Quotes Page  =========*/
+
+.quotes-list {
+  list-style: none;
+  margin-right: 15px;
+}
+
+.quote-box {
+  text-align: left;
+  margin: 15px;
+  margin-left: 300px;
+  margin-right: 300px;
+  padding: 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.141);
+}
+
+.quote-text {
+  text-align: left;
+  color: #000000;
+  font-weight: 500;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.quote-attribution {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: rgb(35, 35, 35);
+}
+
+/*========= Book Details Page  =========*/
+
+.book-details-container {
+  display: flex;
+  margin-left: 30px;
+  margin-top: 60px;
+}
+
+.book-image {
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.27);
+  width: 500px;
+  height: 500px;
+}
+
+.book-info {
+  margin-bottom: 200px;
+  margin-left: 50px;
+  margin-right: 200px;
+  text-align: left;
+  color: rgb(35, 35, 35);
+}
+
+.book-title {
+  margin-bottom: 20px;
+  font-size: 1.2em;
+}
+
+.book-description {
+  line-height: 1.5em;
+  font-weight: 500;
+}
+
+.book-publish-date {
+  font-style: italic;
 }
 
 button {
@@ -66,5 +198,78 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .quote-box {
+    text-align: left;
+    margin-left: 300px;
+    margin-right: 300px;
+    margin: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.141);
+  }
+
+  .book-details-container {
+    display: flex;
+    margin-left: 30px;
+    margin-top: 60px;
+  }
+
+  .book-image {
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.27);
+    width: 500px;
+    height: 500px;
+  }
+
+  .book-info {
+    margin-bottom: 200px;
+    margin-left: 50px;
+    margin-right: 100px;
+    text-align: left;
+    color: rgb(35, 35, 35);
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .quote-box {
+    text-align: left;
+    margin-left: 300px;
+    margin-right: 300px;
+    margin: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.141);
+  }
+
+  .book-details-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    margin-top: 60px;
+  }
+
+  .book-image {
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.27);
+    width: 300px;
+    height: 400px;
+    margin-left: 30px;
+    margin-bottom: 30px;
+  }
+
+  .book-info {
+    margin-bottom: 200px;
+    margin-right: 30px;
+    text-align: left;
+    margin-left: 30px;
+    color: rgb(35, 35, 35);
   }
 }

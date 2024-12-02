@@ -1,34 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
+import "./App.css";
+import Books from "./Books";
+import Quotes from "./Quotes";
+import BookDetails from "./BookDetails";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [books, setBooks] = useState([]);
+
+  useEffect(() => {
+    fetch("https://seussology.info/api/books")
+      .then((response) => response.json())
+      .then((json) => setBooks(json));
+  }, []);
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <Router>
+      <div className="main-container">
+        {}
+        <nav className="nav-container">
+          <h3>Seuss Treasury</h3>
+          <Link className="nav-item" to="/">
+            Books
+          </Link>
+          <Link className="nav-item" to="/quotes">
+            Quotes
+          </Link>
+        </nav>
+        {}
+        <Routes>
+          <Route path="/" element={<Books books={books} />} />
+          <Route path="/quotes" element={<Quotes />} />
+          <Route path="/book/:id" element={<BookDetails books={books} />} />
+        </Routes>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    </Router>
+  );
 }
 
-export default App
+export default App;
